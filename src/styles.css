@@ -1,0 +1,412 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.todo_app {
+    max-width: 900px;
+    height: 500px;
+    border: 1px solid black;
+    margin: 100px auto;
+    display: flex;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input,
+select,
+textarea {
+    background-color: white;
+    border: 1px solid darkgoldenrod;
+    outline: 0;
+    border-radius: 5px;
+}
+
+#title::placeholder {
+    color: red;
+}
+
+.red::placeholder {
+    color: red;
+    
+}
+
+/* =========================================PANEL LEFT============================================== */
+
+.panel_left {
+    border: 1px solid black;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    background: darkgoldenrod;
+}
+
+.categories {
+    margin: 10px;
+    border: 2px solid black;
+    flex-grow: 1;
+    text-align: center;
+    background-color: rgb(233, 233, 237);
+    border-radius: 7px;
+    overflow: auto;
+}
+  
+.categories > span {
+    font-size: 13px;
+    border-bottom: 1px solid black;
+}
+
+.category_list {
+
+}
+
+.categoryItem {
+    display: flex;
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.445);
+    align-items: center;
+    text-align: left;
+    padding: 2px 5px 3px 15px;
+    border-radius: 10px;
+    user-select: none;
+    background-color: linen;
+    box-shadow: inset -3px -3px 3px rgba(0, 0, 0, 0.199);
+    word-wrap: break-word;
+}
+
+.categoryItem:first-child {
+    text-align: center;
+    padding: 5px;
+    background: radial-gradient(linen 30%, gold);
+}
+
+.categoryItem:first-child label {
+    width: 100%;
+    font-style: italic;
+}
+
+.categoryItem label {
+    width: calc(100% - 55px);
+}
+
+.categoryItem h3 {
+    width: calc(100% - 24px);
+    user-select: none;
+}
+
+.categoryItem button {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border-radius: 15px;
+    visibility: hidden;
+    /* display: none; */
+}
+
+.categoryItem button:last-of-type {
+    background: url(./icons/trash.png) no-repeat center / contain;
+    margin-left: 7px;
+}
+
+.categoryItem button:first-of-type {
+    background: url(./icons/settings.png) no-repeat center / contain;
+}
+
+input[type="radio"]:checked + label {
+    font-size: 25px;
+}
+
+.categoryItem:hover {
+    background: palegoldenrod;
+}
+
+.categoryItem:hover input[type="radio"]:checked ~ button{
+    visibility: visible;
+    /* display: inline-block; */
+}
+
+#addCategory {
+    margin: 10px 10px 0;
+}
+
+#inputCategory {
+    margin: 2px 10px 0;
+    text-align: center;
+    outline: 0;
+    border-radius: 5px;
+}
+
+.today {
+    height: 100px;
+    border: 1px solid black;
+    margin: 0 10px 10px;
+    padding: 20px;
+    background-color: rgb(233, 233, 237);
+    border-radius: 7px;
+    text-align: center;
+}
+
+/* -------------------------------------PANEL RIGHT----------------------------------------------------- */
+
+.panel_right {
+    border: 1px solid black;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    background: darkgoldenrod;
+}
+
+#addTodo {
+    margin: 10px 10px 0;
+}
+
+#searchTodo {
+    margin: 2px 10px 0;
+    text-align: center;
+    outline: 0;
+    border-radius: 5px;
+}
+
+.todos {
+    margin: 10px;
+    border: 2px solid black;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    background-color: rgb(233, 233, 237);
+    border-radius: 7px;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.tabs button {
+    flex-grow: 1;
+    background-color: rgb(208, 208, 215);
+}
+
+.active_tab {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 0;
+    border-top: 0;
+    border-bottom-right-radius: 7px;
+}
+
+.finished_tab {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 0;
+    border-top: 0;
+    border-bottom-left-radius: 7px;
+}
+
+.tabs .active {
+    border: 0;
+    background-color: rgb(233, 233, 237);
+}
+
+.todo_list {
+    flex-grow: 1;
+    
+}
+
+.todo {
+    padding: 20px 10px 10px;
+    margin: 10px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.445);
+    border-radius: 10px;
+    user-select: none;
+    background-color: linen;
+    box-shadow: inset -3px -3px 3px rgba(0, 0, 0, 0.199);
+    
+}
+
+.todo:hover {
+    background: PaleGoldenrod;
+}
+
+.todoUp,
+.todoDown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.todoUp {
+    padding-bottom: 10px;
+    position: relative;
+    
+}
+
+.todoDown {
+    border-top: 1px solid rgba(0, 0, 0, 0.253);
+    padding-top: 10px;
+}
+
+.controls {
+    display: flex;
+    column-gap: 10px;
+}
+
+.todo button {
+    width: 32px;
+    height: 32px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.controls :nth-child(1) {
+    background: url(./icons/done.png) no-repeat center / contain;
+}
+
+.controls :nth-child(2) {
+    background: url(./icons/trash.png) no-repeat center / contain;
+}
+
+.controls :nth-child(3) {
+    background: url(./icons/settings.png) no-repeat center / contain;
+}
+
+.todoDown > button {
+    background: url(./icons/trash.png) no-repeat center / contain;
+}
+
+.priority {
+    font-size: 11px;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0 5px;
+    box-shadow: 1px 1px gray,
+            inset 1px 1px white;
+}
+
+.info {
+    height: 30px;
+    border: 1px solid black;
+    padding-top: 2px;
+    background-color: rgb(233, 233, 237);
+    border-radius: 7px;
+    text-align: center;
+    margin: 0 10px 10px;
+}
+
+/* --------------------------------------------DIALOG TODO-------------------------------------------------- */
+
+#newItem {
+    width: 600px;
+    height: 300px;
+    margin: 100px auto;
+    /* display: flex; */
+    column-gap: 50px;
+    border-radius: 7px;
+    background: url(./images/bg_settings.jpg) no-repeat center / cover;
+    border: 1px solid darkgoldenrod;
+}
+
+.left_block {
+    display: flex;
+    flex-direction: column;
+    flex: 2.5;
+}
+
+.right_block {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+}
+
+.right_block select {
+    width: 130px;
+}
+
+#newItem label {
+    margin: 20px 0 2px;
+}
+
+.newItem_buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+}
+
+.newItem_buttons button {
+    flex: 1;
+    background: palegoldenrod;
+    border: 1px solid darkgoldenrod;
+    border-radius: 7px;
+}
+
+.newItem_buttons button:hover {
+    background: Orange;
+}
+
+/* --------------------------------------------DIALOG CATEGORY-------------------------------------------------- */
+
+#categorySettings {
+    width: 400px;
+    height: 300px;
+    margin: 100px auto;
+    /* display: flex; */
+    flex-direction: column;
+    border-radius: 7px;
+    background: palegoldenrod;
+}
+
+#dialogList {
+    flex: 5;
+    border: 1px solid black;
+    /* background-color: rgb(233, 233, 237); */
+    border-radius: 7px;
+    text-align: center;
+    overflow: auto;
+    background: url(./images/bg_settings.jpg) no-repeat center / cover;
+}
+
+.categoryButtons {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 50px;
+}
+
+.categoryButtons button {
+    flex: 1;
+}
+
+.category_select {
+    background-color: palegoldenrod;
+    box-shadow: inset -3px -3px 3px rgba(0, 0, 0, 0.199);
+    margin: 10px;
+    border-radius: 10px;
+    user-select: none;
+    border: 1px solid rgba(0, 0, 0, 0.445);
+}
+
+.category_select:hover {
+    background-color: linen;
+}
+
+.selected {
+    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.5);
+    background-color: Orange;
+}
+
+
+

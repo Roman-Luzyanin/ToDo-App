@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+</head>
+<body>
+    <span class="test"></span>
+    <div class="todo_app">
+        <div class="panel_left">
+            <button id="addCategory">Add category</button>
+            <input type="text" id="inputCategory" placeholder="Input your category...">
+            <div class="categories"> 
+                <button id="categoryUp">&#8593;</button>
+                <span>Category</span>
+                <button id="categoryDown">&#8595;</button>
+                <div class="category_list"></div>
+            </div>
+            <div class="today"></div>
+        </div>
+        <div class="panel_right">
+            <button id="addTodo">Add todo</button> 
+            <input type="text" id="searchTodo" placeholder="Todo search ...">
+            <div class="todos">
+                <div class="tabs">
+                    <button class="active_tab active">Active</button>
+                    <button class="finished_tab">Finished</button>
+                </div>
+                <div class="todo_list"></div>
+            </div>
+            <div class="info"></div>
+        </div>
+    </div>
+
+    <dialog id="newItem">
+        <div class="left_block">
+            <label for="title">Your task:</label>
+                <input type="text" id="title">
+            <label for="description">Description:</label>
+                <textarea id="description" rows="4"></textarea> 
+            <div class="newItem_buttons">
+                <button id="changeApply">Apply</button>
+                <button id="apply">Apply</button>
+                <button id="cancel">Close</button>   
+            </div>
+        </div>
+        <div class="right_block">
+            <label for="date">Due date:</label>
+                <input type="date" id="date">
+
+            <label for="priority">Priority:</label>
+                <select id="priority">
+                    <option value="normal">Normal</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            <label for="category">Category:</label>
+                <select id="category"></select>
+        </div>
+    </dialog>
+
+    <dialog id="categorySettings">
+        <div id="dialogList"></div>
+        <div class="categoryButtons">
+            <button id="categoryApply">Apply</button>
+            <button id="categoryCancel">Cancel</button>
+        </div>
+    </dialog>
+</body>
+</html>
