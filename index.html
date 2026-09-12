@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ToDo App</title>
+<script defer src="main.js"></script></head>
+<body>
+	<dialog class='todoDialog'>
+		<form class='handleTodo'>
+			
+			<div class='left'>
+				<input class='todoTitle' placeholder='Title' required>
+				<textarea class='description' placeholder='Description' rows='5'></textarea>
+				
+				<div class='handleTodoButtons'>
+					<button class='okTodoBtn'>Ok</button>
+					<button type='button' class='cancelTodoBtn'>Cancel</button>
+				</div>
+			</div>
+			
+			<div class='right'>
+				<div class='dueDateWrapper'>
+					<input type='date' class='dueDate'>
+					<div class='dueDateCover'></div>
+				</div>
+				
+				<select class='priority'>
+					<option value=''>Priority</option>
+					<option value='' disabled>Priority</option>
+					<hr>
+					<option value='normal priority'>Normal</option>
+					<option value='high priority'>High</option>
+					<option value='very high priority'>Very High</option>
+				</select>
+				
+				<select class='categorySelect'>
+					<option value=''>Category</option>
+					<option value='' disabled>Category</option>
+					<hr>
+				</select>
+			</div>
+			
+		</form>
+	</dialog>
+	
+	<dialog class='categoryDialog'>
+		<form class='editCategory'>
+			
+			<input class='title' placeholder='Title' required maxlength='25'>
+			
+			<div class='removeCategory'>
+				<input type='checkbox'>
+				<label>Remove category!</label>
+			</div>
+			
+			<div class='cleanUpCategory'>
+				<input type='checkbox'>
+				<label>Remove all todos!</label>
+			</div>
+			
+			<div class='handleCategoryButtons'>
+				<button>ok</button>
+				<button type='button' class='cancelCategoryBtn'>cancel</button>
+			</div>
+			
+		</form>
+	</dialog>
+	
+	<dialog class='completedDialog'>
+		<div class=''></div>
+		<div class='createdAt'>
+			<p>Created:</p>
+			<p></p>
+		</div>
+		<div class='until'>
+			<p>Due date:</p>
+			<p></p>
+		</div>
+		<div class='completedAt'>
+			<p>Completed:</p>
+			<p></p>
+		</div>
+		<hr>
+		<div class='result'>
+			<p></p> - 
+			<p></p>
+		</div>
+		<button>Close</button>
+	</dialog>
+	
+	<div class='categories'>
+<div>
+			<div class='logo'>
+				<div>TO DO</div>
+				<div></div>
+			</div>
+			
+			<div class='categoryList'></div>
+</div>
+<div>
+			<form class='addCategory'>
+				<div class='arrows'>
+					<button type='button'></button>
+					<button type='button'></button>
+				</div>
+				<input class='title' placeholder='New Category' maxlength='25' autocomplete="off" required>
+			</form>
+			
+			<div class='completedTodos'></div>
+</div>
+	</div>
+	
+	<div class='todos'>
+		<div class='controls'>
+			<button class='todoDialogBtn' title='Add Todo'></button>
+			<input class='searchTodo' placeholder='Search...' autocomplete="off">
+			<div class='sorting'>Sort by: 
+				<button class='sortByDefault sort' title='Default'></button>
+				<button class='sortByTitle' title='Title'></button>
+				<button class='sortByTimeLeft' title='Time Left'></button>
+			</div>
+		</div>
+		
+		<div class='todoList'></div>
+	</div>
+</body>
+</html>
