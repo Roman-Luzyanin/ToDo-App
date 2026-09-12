@@ -228,7 +228,7 @@ const initTodoEvents = () => {
 																															'No time limit';												 				 
 			completedAt.textContent = format(todo.addedTo, 'd MMMM yyyy');
 			
-			if (!todo.dueDate || isBefore(todo.addedTo, todo.dueDate)) {
+			if (isBefore(todo.addedTo, todo.dueDate)) {
 				resultImg.classList.add('onTime');
 				resultImg.classList.remove('overDue');
 				resultText.textContent = 'On Time!';
