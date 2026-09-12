@@ -1,0 +1,89 @@
+* {
+	box-sizing: border-box;
+	user-select: none;
+	margin: 0;
+}
+
+body {
+	display: flex;
+	height: 100vh;
+}
+
+.categories {
+	width: 30%;
+	background: #F4F5F7;
+	box-shadow: 0 0 10px gray;
+	padding: 20px 20px 50px;
+	display: flex;
+	flex-direction: column;
+} 
+
+.todos {
+	width: 70%;
+	overflow-y: scroll;
+} 
+
+::placeholder {
+	text-align: center;
+}
+
+.warning::placeholder {
+	color: red;
+}
+
+.warning:focus {
+	caret-color: transparent;
+}
+
+button {
+	cursor: pointer;
+}
+
+button:disabled {
+	cursor: default;
+	filter: grayscale(100%);
+}
+
+input {
+	width: 100%;
+	border-radius: 15px;
+	border: 1px solid lightgray;
+	padding: 5px 10px;
+	text-align: center;
+	outline: none;
+}
+
+textarea {
+  resize: none;
+  border-radius: 15px;
+  padding: 10px;
+  border: 1px solid lightgray;
+  outline: none;
+}
+
+select {
+	text-align: center;
+	background: white;
+	border: 1px solid lightgray;
+	border-radius: 15px;
+	cursor: pointer;
+	padding: 5px;
+	
+	-webkit-appearance: none;  
+  -moz-appearance: none;     
+  appearance: none; 
+}
+
+input[type='date'] {
+	cursor: pointer;
+	width: 120%;
+}
+
+select:hover {
+	background: LightCyan;
+}
+
+select option:first-child  {
+	display: none;
+}
+

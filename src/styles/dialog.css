@@ -1,0 +1,191 @@
+.todoDialog {
+	width: 600px;
+	height: 300px;
+	margin: auto;
+	padding: 40px 30px;
+	border: none;
+	box-shadow: 0 0 5px #348F8C;
+	background: #F4F5F7;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.handleTodo {
+	display: flex;
+	column-gap: 50px;
+}
+
+.handleTodo .left {
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+	row-gap: 30px;
+}
+
+.handleTodoButtons {
+	display: flex;
+	justify-content: center;
+	column-gap: 50px;
+}
+
+.handleTodoButtons button {
+	width: 100px;
+} 
+
+.handleTodo .right {
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	row-gap: 35px;
+}
+
+.dueDateWrapper {
+	position: relative;
+	border: 1px solid lightgray;
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+.dueDateCover {
+	position: absolute;
+	inset: 0;
+	border-radius: 15px;
+	background: white;
+	pointer-events: none;
+	font-size: 14px;
+	display: grid;
+  place-items: center;
+}
+
+.dueDateWrapper:hover .dueDateCover {
+	background: LightCyan;
+}
+
+/*
+-------------------------------Category------------------------------------------------
+*/
+
+.categoryDialog {
+	transform: translateX(-50%);
+	border: none;
+	box-shadow: 0 0 5px #348F8C;
+	background: #F4F5F7;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.handleCategoryButtons button {
+	width: 70px;
+} 
+
+.cleanUpCategory,
+.removeCategory {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	gap: 10px;
+}
+
+.editCategory .title {
+	display: none;
+}
+
+.removeCategory {
+	display: none;
+
+	padding: 5px 0 0 10px;
+	margin-top: 15px;
+	border-top: 1px solid lightgray;
+	position: relative;
+}
+
+.removeCategory::after {
+	content: '';
+	position: absolute;
+	top: 27px;
+	left: 18px;
+	width: 9px;
+	height: 13px;
+	border-left: 1px solid gray;
+	border-bottom: 1px solid gray;
+}
+
+.cleanUpCategory {
+	margin-left: 30px;
+}
+
+.cleanUpCategory input,
+.removeCategory input {
+	width: 10%;
+	cursor: pointer;
+}
+
+.handleCategoryButtons {
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	gap: 30px;
+	padding-top: 15px;
+	margin-top: 5px;
+	border-top: 1px solid lightgray;
+}
+
+.red {
+	color: red;
+}
+.coral {
+	color: coral;
+}
+
+.green {
+	color: green;
+}
+
+.editCategory .visible {
+	display: block;
+}
+
+.removeCategory:not(.visible) + .cleanUpCategory {
+	margin: 0 0 10px;
+}
+
+/*
+-----------------------COMPLETED-----------------------------
+*/
+
+.completedDialog {
+	width: 300px;
+	transform: translateX(-50%);
+	border: none;
+	box-shadow: 0 0 5px #348F8C;
+	background: #F4F5F7;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.createdAt,
+.until,
+.completedAt {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.result {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin: 10px 0;
+}
+
+.completedDialog button {
+	display: block;	
+	margin: auto;
+}
+
+.completedDialog hr {
+	height: 1px;
+	border: none;
+	background: gray;
+	margin-top: 12px;
+}

@@ -1,0 +1,149 @@
+.logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	column-gap: 10px;
+	margin-bottom: 20px;
+}
+
+.logo :first-child {
+	font-size: 30px;
+	color: #348F8C;
+	font-weight: 700;
+}
+
+.logo :last-child {
+	width: 30px;
+	height: 30px;
+	background: no-repeat url(../images/logo.png) center / contain;
+}
+
+.addCategory {
+	text-align: center;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	padding: 20px 0;
+	position: relative;
+	margin: 0 20px;
+}
+
+.categoryList,
+.completedTodos {
+	padding: 20px;
+	font-size: 20px;
+}
+
+.mainBlock {
+	overflow-y: scroll;
+	height: 75%;
+	width: calc(100% + 20px);
+
+	position: relative;
+	left: -20px;
+	padding-left: 20px;
+}
+
+.categoryList {
+	height: 350px;
+}
+
+.inbox {
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.inbox::after {
+	content: '';
+	position: absolute;
+	top: 125%;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background: lightgray;
+	z-index: 100;
+}
+
+.category {
+	display: flex;
+	justify-content: space-between; 
+	align-items: center;
+	cursor: pointer;
+	padding: 5px;
+	position: relative;
+}
+
+.inbox,
+.completed {
+	font-weight: bold;
+	color: #348F8C;
+}
+
+.category:not(.activeCategory):hover::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: -25px;
+	width: 30px;
+	height: 10px;
+	background: no-repeat url(../images/arrow.png) center / contain;
+	transform: scale(-1) translateY(50%);
+}
+
+.activeCategory {
+	background: white;
+	border-radius: 10px;
+}
+
+.editCategoryBtn {
+	width: 20px;
+	height: 20px;
+	background: no-repeat url(../images/edit.png) center / contain;
+	border: none;
+	display: none;
+}
+
+.category:hover .editCategoryBtn {
+	display: block;
+}
+
+.editCategoryBtn:active {
+	transform: scale(0.9);
+}
+
+.arrows {
+	position: absolute;
+	top: -50%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.arrows :first-child {
+	width: 25px;
+	height: 25px;
+	background: no-repeat url(../images/up.png) center / contain;
+	border: none;
+	margin-right: 30px;
+}
+
+.arrows :last-child {
+	width: 25px;
+	height: 25px;
+	background: no-repeat url(../images/down.png) center / contain;
+	border: none;
+}
+
+.arrows :first-child:not(:disabled):hover,
+.arrows :last-child:not(:disabled):hover {
+	filter: brightness(80%);
+}
+
+.arrows :first-child:not(:disabled):active,
+.arrows :last-child:not(:disabled):active {
+	transform: scale(0.9);
+}
+
+input:disabled {
+	cursor: default;
+}
+
+
