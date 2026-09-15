@@ -367,6 +367,16 @@ const addCategory = () => {
 		renderCategories();
 	});
 	
+	newCategoryTitle.addEventListener('input', () => {
+		if (newCategoryTitle.value.length > 15) {
+			newCategoryTitle.value = newCategoryTitle.value.slice(0, 15);
+			newCategoryTitle.setCustomValidity('Cannot exceed 15 characters!');
+			newCategoryTitle.reportValidity();
+		} else {
+			newCategoryTitle.setCustomValidity('');
+		}
+	});
+	
 	resetWarning(newCategoryTitle, 'New Category');
 };
 
@@ -455,6 +465,16 @@ const initCategoryEvents = () => {
 		editCategory.reset();	
 		categoryDialog.close();
 		removeRedClass();
+	});
+	
+	editCategoryTitle.addEventListener('input', () => {
+		if (editCategoryTitle.value.length > 15) {
+			editCategoryTitle.value = editCategoryTitle.value.slice(0, 15);
+			editCategoryTitle.setCustomValidity('Cannot exceed 15 characters!');
+			editCategoryTitle.reportValidity();
+		} else {
+			editCategoryTitle.setCustomValidity('');
+		}
 	});
 	
 	removeCategoryInput.addEventListener('change', () => {
