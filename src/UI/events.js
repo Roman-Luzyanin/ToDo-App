@@ -106,14 +106,73 @@ function duplicateWarning(element, location) {
 	element.value = '';
 	element.classList.add('warning');
 	element.placeholder = location ? `Name exist in '${location.title}'` : 'Name already exist!';
-	element.blur();
 }
 
 function resetWarning(element, placeholder) {
+	element.addEventListener('blur', () => {
+		if (element.classList.contains('warning')) {
+			element.classList.remove('warning');
+			element.placeholder = placeholder;
+		}    
+	}); 
+	
 	document.querySelector('body').addEventListener('click', () => {
 		if (element.classList.contains('warning')) {
 			element.classList.remove('warning');
 			element.placeholder = placeholder;
+		}
+	});
+	
+	element.addEventListener('input', () => {
+		if (element.classList.contains('warning')) {
+			element.classList.remove('warning');
+			element.placeholder = placeholder;
+		}    
+	}); 
+}
+
+function submitValidate(element, todo) {
+	if (element.value.trim() === '' && todo) {
+		element.classList.add('warning');
+		element.placeholder = 'Cannot be empty!';
+		return false;
+	
+	} else if (element.value.trim() === '') {
+		element.setCustomValidity('Cannot be empty!');
+		element.classList.add('invalidInput');
+		element.reportValidity();
+		return false; 
+		
+	} else if (element.value.length > 15 && !todo) {
+		element.reportValidity();
+		return false; 
+	}
+	
+	return true;
+}
+
+function inputValidate(element, edit) {
+	element.addEventListener('input', () => {
+		if (element.value.length > 15) {
+			element.value = element.value.slice(0, 16);
+			element.setCustomValidity('Cannot exceed 15 characters!');
+			element.classList.add('invalidInput');
+			element.reportValidity();
+
+		} else if (edit && element.value.trim() === '') {
+			element.setCustomValidity('Cannot be empty!');
+			element.classList.add('invalidInput');
+			element.reportValidity();
+			
+		} else {
+			element.setCustomValidity('');
+			element.classList.remove('invalidInput');
+		}
+	});
+	
+	element.addEventListener('blur', () => { 
+		if (element.value.trim() === '' && !edit) {
+			element.classList.remove('invalidInput');
 		}
 	});
 }
@@ -245,10 +304,12 @@ const initTodoEvents = () => {
 	todoForm.addEventListener('submit', (e) => {
 		e.preventDefault();
 		
-		 if (!todoForm.checkValidity()) {
-			todoForm.reportValidity(); 
-			return; 
-		}
+		 //~ if (!todoForm.checkValidity()) {
+			//~ todoForm.reportValidity(); 
+			//~ return; 
+		//~ }
+		
+		if (!submitValidate(todoTitle, true)) return;
 		
 		if (!isEdit) {
 			const location = app.getCategories().find(item => 
@@ -351,13 +412,17 @@ const initTodoEvents = () => {
 //~ ===================================Categories======================================
 
 const addCategory = () => {
-	categoryForm.addEventListener('submit', (e) => {
+	categoryForm.addEventListener('submit', (e) => { 
 		e.preventDefault();
+		
+		if (!submitValidate(newCategoryTitle)) return;
+		
 		if (app.getCategories().some(cat => cat.title.toLowerCase() === 
 																				newCategoryTitle.value.toLowerCase())) {
 			duplicateWarning(newCategoryTitle);
 			return;
-		} 
+		} 		
+		
 		const category = Category(newCategoryTitle.value);
 		app.addCategory(category);
 		newCategoryTitle.value = '';
@@ -367,15 +432,7 @@ const addCategory = () => {
 		renderCategories();
 	});
 	
-	newCategoryTitle.addEventListener('input', () => {
-		if (newCategoryTitle.value.length > 15) {
-			newCategoryTitle.value = newCategoryTitle.value.slice(0, 15);
-			newCategoryTitle.setCustomValidity('Cannot exceed 15 characters!');
-			newCategoryTitle.reportValidity();
-		} else {
-			newCategoryTitle.setCustomValidity('');
-		}
-	});
+	inputValidate(newCategoryTitle);
 	
 	resetWarning(newCategoryTitle, 'New Category');
 };
@@ -419,11 +476,8 @@ const initCategoryEvents = () => {
 	
 	editCategory.addEventListener('submit' , (e) => {
 		e.preventDefault();
-
-		if (!editCategory.checkValidity()) {
-			editCategory.reportValidity(); 
-			return; 
-		}
+		
+		if (!submitValidate(editCategoryTitle)) return;
 		
 		if (app.getCategories().some(item => 
 							item.title.toLowerCase() === editCategoryTitle.value.toLowerCase() &&
@@ -467,15 +521,7 @@ const initCategoryEvents = () => {
 		removeRedClass();
 	});
 	
-	editCategoryTitle.addEventListener('input', () => {
-		if (editCategoryTitle.value.length > 15) {
-			editCategoryTitle.value = editCategoryTitle.value.slice(0, 15);
-			editCategoryTitle.setCustomValidity('Cannot exceed 15 characters!');
-			editCategoryTitle.reportValidity();
-		} else {
-			editCategoryTitle.setCustomValidity('');
-		}
-	});
+	inputValidate(editCategoryTitle, true);
 	
 	removeCategoryInput.addEventListener('change', () => {
 		if (removeCategoryInput.checked) {

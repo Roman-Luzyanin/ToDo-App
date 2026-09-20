@@ -126,6 +126,7 @@ const renderCategories = (savedPosition) => {
 		category.classList.add('category');
 		category.dataset.id = item.id;
 		category.textContent = item.title;
+		
 		if (item.title === 'INBOX') category.classList.add('inbox');
 		if (item.title === 'COMPLETED') category.classList.add('completed');
 		

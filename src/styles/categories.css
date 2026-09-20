@@ -146,5 +146,10 @@ input:disabled {
 	cursor: default;
 }
 
+.invalidInput {
+	border: 1px solid coral;
+	box-shadow: inset 0 0 2px red;
+}
+
 
 

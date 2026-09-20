@@ -7,10 +7,10 @@
 </head>
 <body>
 	<dialog class='todoDialog'>
-		<form class='handleTodo'>
+		<form class='handleTodo' novalidate>
 			
 			<div class='left'>
-				<input class='todoTitle' placeholder='Title' required>
+				<input class='todoTitle' placeholder='Title'>
 				<textarea class='description' placeholder='Description' rows='5'></textarea>
 				
 				<div class='handleTodoButtons'>
@@ -21,11 +21,11 @@
 			
 			<div class='right'>
 				<div class='dueDateWrapper'>
-					<input type='date' class='dueDate'>
+					<input type='date' class='dueDate' tabindex="-1">
 					<div class='dueDateCover'></div>
 				</div>
 				
-				<select class='priority'>
+				<select class='priority' tabindex="-1">
 					<option value=''>Priority</option>
 					<option value='' disabled>Priority</option>
 					<hr>
@@ -34,7 +34,7 @@
 					<option value='very high priority'>Very High</option>
 				</select>
 				
-				<select class='categorySelect'>
+				<select class='categorySelect' tabindex="-1">
 					<option value=''>Category</option>
 					<option value='' disabled>Category</option>
 					<hr>
@@ -45,9 +45,9 @@
 	</dialog>
 	
 	<dialog class='categoryDialog'>
-		<form class='editCategory'>
+		<form class='editCategory' novalidate>
 			
-			<input class='title' placeholder='Title' required>
+			<input class='title' placeholder='Title'>
 			
 			<div class='removeCategory'>
 				<input type='checkbox'>
@@ -90,25 +90,25 @@
 	</dialog>
 	
 	<div class='categories'>
-<div>
+		<div>
 			<div class='logo'>
 				<div>TO DO</div>
 				<div></div>
 			</div>
 			
 			<div class='categoryList'></div>
-</div>
-<div>
-			<form class='addCategory'>
+		</div>
+		<div>
+			<form class='addCategory' novalidate>
 				<div class='arrows'>
 					<button type='button'></button>
 					<button type='button'></button>
 				</div>
-				<input class='title' placeholder='New Category' autocomplete="off" required>
+				<input class='title' placeholder='New Category' autocomplete="off">
 			</form>
 			
 			<div class='completedTodos'></div>
-</div>
+		</div>
 	</div>
 	
 	<div class='todos'>
