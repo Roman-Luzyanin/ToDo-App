@@ -5,8 +5,18 @@
 }
 
 body {
-	display: flex;
 	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow-y: hidden;
+}
+
+.todoApp {
+	display: flex;
+	width: 1280px;
+	height: 685px;
+	border: 1px solid #348F8C;
 }
 
 .categories {
@@ -20,7 +30,6 @@ body {
 
 .todos {
 	width: 70%;
-	overflow-y: scroll;
 } 
 
 ::placeholder {

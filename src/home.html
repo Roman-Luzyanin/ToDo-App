@@ -89,40 +89,42 @@
 		<button>Close</button>
 	</dialog>
 	
-	<div class='categories'>
-		<div>
-			<div class='logo'>
-				<div>TO DO</div>
-				<div></div>
-			</div>
-			
-			<div class='categoryList'></div>
-		</div>
-		<div>
-			<form class='addCategory' novalidate>
-				<div class='arrows'>
-					<button type='button'></button>
-					<button type='button'></button>
+	<div class=todoApp>
+		<div class='categories'>
+			<div>
+				<div class='logo'>
+					<div>TO DO</div>
+					<div></div>
 				</div>
-				<input class='title' placeholder='New Category' autocomplete="off">
-			</form>
-			
-			<div class='completedTodos'></div>
-		</div>
-	</div>
-	
-	<div class='todos'>
-		<div class='controls'>
-			<button class='todoDialogBtn' title='Add Todo'></button>
-			<input class='searchTodo' placeholder='Search...' autocomplete="off">
-			<div class='sorting'>Sort by: 
-				<button class='sortByDefault sort' title='Default'></button>
-				<button class='sortByTitle' title='Title'></button>
-				<button class='sortByTimeLeft' title='Time Left'></button>
+				
+				<div class='categoryList'></div>
+			</div>
+			<div>
+				<form class='addCategory' novalidate>
+					<div class='arrows'>
+						<button type='button'></button>
+						<button type='button'></button>
+					</div>
+					<input class='title' placeholder='New Category' autocomplete="off">
+				</form>
+				
+				<div class='completedTodos'></div>
 			</div>
 		</div>
 		
-		<div class='todoList'></div>
+		<div class='todos'>
+			<div class='controls'>
+				<button class='todoDialogBtn' title='Add Todo'></button>
+				<input class='searchTodo' placeholder='Search...' autocomplete="off">
+				<div class='sorting'>Sort by: 
+					<button class='sortByDefault sort' title='Default'></button>
+					<button class='sortByTitle' title='Title'></button>
+					<button class='sortByTimeLeft' title='Time Left'></button>
+				</div>
+			</div>
+			
+			<div class='todoList'></div>
+		</div>
 	</div>
 </body>
 </html>
