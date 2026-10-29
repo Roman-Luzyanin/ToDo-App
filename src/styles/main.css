@@ -16,7 +16,8 @@ body {
 	display: flex;
 	width: 1280px;
 	height: 685px;
-	border: 1px solid #348F8C;
+	border: 3px outset #348F8C;
+	overflow: hidden;
 }
 
 .categories {
